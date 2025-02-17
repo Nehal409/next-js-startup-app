@@ -67,6 +67,7 @@
     @apply px-6 py-10 max-w-7xl mx-auto;
   }
 
+  /* Three column grid on medium devices and 2 column grid on small devices */
   .card_grid {
     @apply grid md:grid-cols-3 sm:grid-cols-2 gap-5;
   }
