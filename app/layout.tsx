@@ -1,7 +1,8 @@
+import { Toaster } from "@/components/ui/toaster";
+import "easymde/dist/easymde.min.css"; // For Markdown editor
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import "easymde/dist/easymde.min.css"; // For Markdown editor
 
 const workSans = localFont({
   src: [
@@ -66,7 +67,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={workSans.variable}>{children}</body>
+      <body className={workSans.variable}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
