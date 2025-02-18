@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
@@ -11,6 +12,9 @@ export default async function Home({
   // Robust server side form handling
   const query = (await searchParams).query;
   const params = { search: query || null };
+
+  const session = await auth();
+  console.log(session?.id);
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params }); // Keep the content automatically updated in real-time
 
